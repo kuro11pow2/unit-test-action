@@ -27,20 +27,30 @@ jobs:
         run: pip list
 
       - name: 테스트 실행
-        run: pytest --cov=calculator --junitxml=reports/junit/junit.xml --html=reports/junit/report.html
+        run: |
+          coverage run -m pytest --junitxml=reports/junit/junit.xml --html=reports/junit/report.html
+          git status
+
+      - name: coverage 확인
+        run: |
+          coverage report
+          coverage xml
+          coverage html
+          git status
 
       - name: 배지 생성
         run: |
           genbadge tests
           genbadge coverage
+          git status
 
       - name: 변경 사항 출력 및 적용
         run: |
-          git status
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
           git commit -m "변경 사항 적용"
+          git status
           
       - name: 변경 사항 push
         uses: ad-m/github-push-action@master

@@ -2,3 +2,4 @@ genbadge[all]
 pytest
 pytest-cov
 pytest-html
+coverage
