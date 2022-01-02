@@ -32,8 +32,10 @@ jobs:
       - name: 배지 생성
         run: genbadge tests
 
-      - name: 변경 사항 출력
-        run: git status
+      - name: 변경 사항 출력 및 적용
+        run: |
+          git add .
+          git status
       
       - name: 변경 사항 push
         uses: ad-m/github-push-action@master
