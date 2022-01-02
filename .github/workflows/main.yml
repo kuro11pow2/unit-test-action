@@ -34,9 +34,12 @@ jobs:
 
       - name: 변경 사항 출력 및 적용
         run: |
-          git add .
           git status
-      
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "변경 사항 적용"
+          
       - name: 변경 사항 push
         uses: ad-m/github-push-action@master
         with:
