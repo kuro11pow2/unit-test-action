@@ -30,7 +30,9 @@ jobs:
         run: pytest --cov=calculator --junitxml=reports/junit/junit.xml --html=reports/junit/report.html
 
       - name: 배지 생성
-        run: genbadge tests
+        run: |
+          genbadge tests
+          genbadge coverage
 
       - name: 변경 사항 출력 및 적용
         run: |
