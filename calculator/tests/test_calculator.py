@@ -1,7 +1,7 @@
 import pytest
 from calculator.calculator import add, subtract, multiply, divide
 
-@pytest.mark.parametrize('a,b,expected', [(3, 5, 8), (1, 1, 2), (-52, 5, -47999)])
+@pytest.mark.parametrize('a,b,expected', [(3, 5, 8), (1, 1, 2), (-52, 5, -47)])
 def test_add_two_int(a, b, expected):    
     assert add(a, b) == expected
     
